@@ -58,7 +58,6 @@ Config will be auto generated. Default/Example:
           "Type": "credits",
           "Value": "3000",
           "Description": "3000 Credits",
-          "Expiration": 0,
           "Chance": 50,
           "PrintToChatAll": false
         },
