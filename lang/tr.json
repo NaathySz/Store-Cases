@@ -1,0 +1,29 @@
+{
+    "Prefix": "{red}[Kasa] {white}",
+
+    "Cases Menu title": "Mağaza Kasaları",
+    "Case item": "{0} - {1} kredi",
+    "Not enough credits": "Yeterli krediniz yok",
+    "You won": "{green}{0} {white} kazandınız",
+    "You won center": "{0} kazandınız",
+    "Player won chat all": "{yellow}{0}, {blue}{2} {white}kutusundan {green}{1} {white}kazandı",
+    "Rolling": "{0}",
+    "Item could not be awarded": "Öğe verilemedi. Lütfen yetkili ile iletişime geçin",
+    "No rewards available in the case": "Kasada ödül yok",
+    "No permission to buy this case": "Bu kutuyu satın alma izniniz yok",
+
+    "Case Options Menu title": "Kasa Seçenekleri",
+    "Buy Case": "Satın Al",
+    "View Case Content": "İçeriği Görüntüle",
+    "Case Content First Line": "========================",
+    "Case Content List": "{yellow}{0} {white}",
+    "Case Content Last Line": "========================",
+    "Case Content Chances": "({blue}{0}%{white})",
+
+    "Case not found": "Kutu {blue}{0} {white}bulunamadı",
+    "Invalid case index": "{blue}{0}{white} geçerli bir kasa indeks değil",
+
+    "No permission to give case": "Bu komutu çalıştırma izniniz yok",
+    "Case given": "{yellow}{0} isimli oyuncuya {blue}{1} {white}kasası verildi",
+    "Invalid player": "Geçersiz oyuncu"
+}

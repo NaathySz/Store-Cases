@@ -1,0 +1,29 @@
+{
+    "Prefix": "{red}[Cases] {white}",
+
+    "Cases Menu title": "Caixas da Loja",
+    "Case item": "{0} - {1} créditos",
+    "Not enough credits": "Você não tem créditos suficientes",
+    "You won": "Você ganhou: {green}{0}",
+    "You won center": "Você ganhou: {0}",
+    "Player won chat all": "{yellow}{0} {white}ganhou {green}{1} {white}da {blue}{2}",
+    "Rolling": "{0}",
+    "Item could not be awarded": "O item não pôde ser concedido. Entre em contato com o dono do servidor",
+    "No rewards available in the case": "Sem recompensas disponível na caixa",
+    "No permission to buy this case": "Você não tem permissão para comprar essa caixa",
+
+    "Case Options Menu title": "Opções da Caixa",
+    "Buy Case": "Comprar",
+    "View Case Content": "Ver Conteúdo",
+    "Case Content First Line": "========================",
+    "Case Content List": "{yellow}{0} {white}",
+    "Case Content Last Line": "========================",
+    "Case Content Chances": "({blue}{0}%{white})",
+
+    "Case not found": "Caixa {blue}{0} {white}não encontrada",
+    "Invalid case index": "{blue}{0}{white} não é um índice de caixa válido",
+
+    "No permission to give case": "Você não tem permissão para executar este comando",
+    "Case given": "{yellow}{0} {white}recebeu {blue}{1}",
+    "Invalid player": "Jogador inválido"
+}

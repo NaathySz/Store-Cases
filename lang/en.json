@@ -1,0 +1,29 @@
+{
+    "Prefix": "{red}[Cases] {white}",
+
+    "Cases Menu title": "Store Cases",
+    "Case item": "{0} - {1} credits",
+    "Not enough credits": "You don't have enough credits",
+    "You won": "You won: {green}{0}",
+    "You won center": "You won: {0}",
+    "Player won chat all": "{yellow}{0} {white}has won {green}{1} {white}from the {blue}{2}",
+    "Rolling": "{0}",
+    "Item could not be awarded": "Item could not be awarded. Contact the server owner",
+    "No rewards available in the case": "No rewards available in the case",
+    "No permission to buy this case": "You don't have permission to buy this case",
+
+    "Case Options Menu title": "Case Options",
+    "Buy Case": "Buy",
+    "View Case Content": "View Contents",
+    "Case Content First Line": "========================",
+    "Case Content List": "{yellow}{0} {white}",
+    "Case Content Last Line": "========================",
+    "Case Content Chances": "({blue}{0}%{white})",
+
+    "Case not found": "Case {blue}{0} {white}not found",
+    "Invalid case index": "{blue}{0} {white}is not a valid case index",
+
+    "No permission to give case": "You don't have permission to execute this command",
+    "Case given": "{yellow}{0} {white}has received a {blue}{1}",
+    "Invalid player": "Invalid player"
+}
