@@ -52,7 +52,6 @@ Config will be auto generated. Default/Example:
     {
       "Name": "Example",
       "Price": 1000,
-      "Flag": null,
       "Rewards": [
         {
           "Type": "credits",
