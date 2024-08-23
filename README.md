@@ -77,10 +77,9 @@ Config will be auto generated. Default/Example:
           "PrintToChatAll": true
         },
         {
-          "Type": "playerskin",
-          "Value": "characters/models/ctm_fbi/ctm_fbi_variantf.vmdl",
-          "Description": "Operator",
-          "Expiration": 172800,
+          "Type": "vip",
+          "Value": "css_vip_adduser \"{SteamID}\" \"VIP_Bronze\" \"1440\"",
+          "Description": "Vip Bronze (1 day)",
           "Chance": 15,
           "PrintToChatAll": true
         }
@@ -91,6 +90,9 @@ Config will be auto generated. Default/Example:
   "Animation_Interval": 0.1, // Interval between displaying each reward during animation (recommend avoiding very low values like 0.01; if Use_Html is true, avoid high values as animation may not display correctly)
   "Animation_Html": "Rolling...<br><font color='#FF0000'>{reward}</font>", // HTML code for displaying rewards during animation; used only if Use_Html is true
   "Reward_Html": "You won:<br><font color='#00FF00'>{reward}</font>", // HTML code for displaying the final reward; used only if Use_Html is true
+  "Open_case_sound": "/sounds/ui/csgo_ui_crate_open.vsnd_c", // Play sound when case is opened
+  "Roll_item_sound": "/sounds/ui/csgo_ui_crate_item_scroll.vsnd_c", // Play sound between each item in animation
+  "Won_item_sound": "/sounds/ui/panorama/inventory_new_item_01.vsnd_c", // Play sound when item is awarded
   "Use_Html": false, // If true, it will use PrintToCenterHtml to display animations and rewards in HTML format (can be styled but may look awful due to the flashing effect). If false, it will use PrintToCenter.
   "Show_Reward_Chances": true, // If true, displays the chances of each reward in the Case Contents
   "ConfigVersion": 1
