@@ -33,7 +33,7 @@ Config will be auto generated. Default/Example:
       "Flag": "@css/vip", // Optional field. Only players with this permission can buy the case. Delete this line if you want everyone to have access
       "Rewards": [
         {
-          "Type": "credits", // Type of reward. Should match the types defined in Store (or credits)
+          "Type": "credits", // Type of reward. Should match the types defined in Store (or credits/vip)
           "Value": "1000", // Amount of credits or identifier for other types of rewards
           "Description": "1000 Credits", // Description of the reward shown in Case Contents and final reward display
           "Chance": 90, // Probability percentage of this reward being selected
