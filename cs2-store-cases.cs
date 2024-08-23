@@ -1,4 +1,4 @@
-﻿using CounterStrikeSharp.API;
+using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Core.Attributes.Registration;
 using CounterStrikeSharp.API.Modules.Commands;
@@ -61,7 +61,7 @@ public class Store_CasesConfig : BasePluginConfig
                 new CaseReward { Type = "credits", Value = "3000", Description = "3000 Credits", Chance = 50, PrintToChatAll = false },
                 new CaseReward { Type = "playerskin", Value = "characters/models/ctm_diver/ctm_diver_variantb.vmdl", Description = "Fernandez Frogman", Expiration = 86400, Chance = 20, PrintToChatAll = false },
                 new CaseReward { Type = "playerskin", Value = "characters/models/tm_professional/tm_professional_vari.vmdl", Description = "Number K", Expiration = 0, Chance = 15, PrintToChatAll = true },
-                new CaseReward { Type = "playerskin", Value = "characters/models/ctm_fbi/ctm_fbi_variantf.vmdl", Description = "Operator", Expiration = 172800, Chance = 15, PrintToChatAll = true }
+                new CaseReward { Type = "vip", Value = "css_vip_adduser \"{SteamID}\" \"VIP_Bronze\" \"1440\"", Description = "Vip Bronze (1 day)", Chance = 15, PrintToChatAll = true }
             }
         }
     };
@@ -77,6 +77,15 @@ public class Store_CasesConfig : BasePluginConfig
 
     [JsonPropertyName("Reward_Html")]
     public string FinalHtml { get; set; } = "You won:<br><font color='#00FF00'>{reward}</font>";
+
+    [JsonPropertyName("Open_case_sound")]
+    public string OpenCaseSound { get; set; } = "/sounds/ui/csgo_ui_crate_open.vsnd_c";
+
+    [JsonPropertyName("Roll_item_sound")]
+    public string RollItemSound { get; set; } = "/sounds/ui/csgo_ui_crate_item_scroll.vsnd_c";
+
+    [JsonPropertyName("Won_item_sound")]
+    public string WonItemSound { get; set; } = "/sounds/ui/panorama/inventory_new_item_01.vsnd_c";
 
     [JsonPropertyName("Use_Html")]
     public bool UseHtml { get; set; } = false;
@@ -128,7 +137,7 @@ public class CaseReward
 public class Store_Cases : BasePlugin, IPluginConfig<Store_CasesConfig>
 {
     public override string ModuleName => "Store Module [Cases]";
-    public override string ModuleVersion => "0.0.1";
+    public override string ModuleVersion => "0.1.0";
     public override string ModuleAuthor => "Nathy";
 
     public IStoreApi? StoreApi { get; set; }
@@ -360,6 +369,8 @@ public class Store_Cases : BasePlugin, IPluginConfig<Store_CasesConfig>
             return;
         }
 
+        player.ExecuteClientCommand($"play {Config.OpenCaseSound}");
+
         int playerCredits = StoreApi.GetPlayerCredits(player);
 
         if (playerCredits < caseItem.Price)
@@ -415,6 +426,7 @@ public class Store_Cases : BasePlugin, IPluginConfig<Store_CasesConfig>
 
         AddTimer(Config.AnimationInterval, () =>
         {
+            animation.Player.ExecuteClientCommand($"play {Config.RollItemSound}");
             UpdateCaseAnimation(animation);
         });
     }
@@ -447,6 +459,7 @@ public class Store_Cases : BasePlugin, IPluginConfig<Store_CasesConfig>
     private void EndCaseAnimation(CaseAnimation animation)
     {
         if (StoreApi == null) throw new Exception("StoreApi could not be located.");
+        animation.Player.ExecuteClientCommand($"play {Config.WonItemSound}");
         
         activeAnimations.TryRemove(animation.Player.SteamID.ToString(), out _);
 
@@ -470,6 +483,18 @@ public class Store_Cases : BasePlugin, IPluginConfig<Store_CasesConfig>
             {
                 Server.PrintToChatAll(Localizer["Prefix"] + Localizer["Player won chat all", animation.Player.PlayerName, reward.Description, caseItem.Name]);
             }
+        }
+        else if (reward.Type == "vip")
+        {
+            string command = reward.Value.Replace("{SteamID}", animation.Player.SteamID.ToString());
+            NativeAPI.IssueServerCommand(command);
+
+            if (reward.PrintToChatAll)
+            {
+                Server.PrintToChatAll(Localizer["Prefix"] + Localizer["Player won chat all", animation.Player.PlayerName, reward.Description, caseItem.Name]);
+            }
+
+            ShowFinalReward(animation.Player, reward.Description);
         }
         else
         {
